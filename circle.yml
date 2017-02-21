@@ -23,7 +23,9 @@ dependencies:
     - npm install -g mocha
     - npm install -g phantomjs
     - npm install -g webpack
-    - webpack
+    - npm install -g yarn
+    - yarn
+    - node_modules/.bin/webpack
 test:
   override:
     - mocha
