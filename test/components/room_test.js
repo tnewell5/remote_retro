@@ -2,10 +2,33 @@ import React from "react"
 import { shallow } from "enzyme"
 import { expect } from "chai"
 import sinon from "sinon"
+import CategoryColumn from "../../web/static/js/components/category_column"
 
 import Room from "../../web/static/js/components/room"
 
-describe("Room component", () => {
+describe("<Room>", () => {
+  context("when it renders", () => {
+    const props = {
+      retroChannel: { on: () => {} },
+      users: []
+    }
+    let component
+
+    before(() => {
+      component = shallow(<Room { ...props } />)
+    })
+
+    it("render a column for each category", () => {
+      expect(component).contains(
+          <div class="ui equal width padded grid category-columns-wrapper">
+            <CategoryColumn category="happy" ideas={ [] }/>
+            <CategoryColumn category="sad" ideas={ [] }/>
+            <CategoryColumn category="confused" ideas={ [] }/>
+          </div>
+      ).to.equal(true)
+    })
+  })
+
   describe(".handleIdeaSubmission", () => {
     it("pushes the idea to the room channel", () => {
       const onStub = () => {}
