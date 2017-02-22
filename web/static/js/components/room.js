@@ -7,7 +7,7 @@ import IdeaSubmissionForm from "./idea_submission_form"
 class Room extends Component {
   constructor(props) {
     super(props)
-    this.state = { ideas: [] }
+    this.state = { ideas: [], showActionItems: false }
     this.handleIdeaSubmission = this.handleIdeaSubmission.bind(this)
     this._setupRetroChannelEventHandlers()
   }
@@ -26,6 +26,10 @@ class Room extends Component {
     this.props.retroChannel.push("new_idea", idea)
   }
 
+  handleToggleActionItems() {
+    this.setState({ ideas: [...this.state.ideas], showActionItems: !this.state.showActionItems })
+  }
+
   render() {
     return (
       <section className="room">
@@ -37,7 +41,7 @@ class Room extends Component {
         </div>
 
         <UserList users={ this.props.users } />
-        <IdeaSubmissionForm onIdeaSubmission={ this.handleIdeaSubmission }/>
+        <IdeaSubmissionForm onIdeaSubmission={ this.handleIdeaSubmission } isActionItemsDisplayed={ this.state.showActionItems } toggleActionItems={ this.toggleActionItems }/>
       </section>
     )
   }

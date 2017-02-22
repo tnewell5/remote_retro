@@ -17,7 +17,12 @@ describe("Room component", () => {
 
       roomComponent
         .instance()
-        .handleIdeaSubmission({ category: "sad", body: "we don't use our linter" })
+                  <div className="three wide field">
+                      <div class="ui checkbox">
+                        <input type="checkbox" />
+                        <label>Toggle Action Items</label>
+                      </div>
+                    </div>
 
       expect(
         retroChannel.push.calledWith("new_idea", { category: "sad", body: "we don't use our linter" })
