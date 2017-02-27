@@ -7,8 +7,9 @@ import IdeaSubmissionForm from "./idea_submission_form"
 class Room extends Component {
   constructor(props) {
     super(props)
-    this.state = { ideas: [], showActionItems: false }
+    this.state = { ideas: [], showActionItem: false }
     this.handleIdeaSubmission = this.handleIdeaSubmission.bind(this)
+    this.handleToggleActionItem = this.handleToggleActionItem.bind(this)
     this._setupRetroChannelEventHandlers()
   }
 
@@ -26,8 +27,9 @@ class Room extends Component {
     this.props.retroChannel.push("new_idea", idea)
   }
 
-  handleToggleActionItems() {
-    this.setState({ ideas: [...this.state.ideas], showActionItems: !this.state.showActionItems })
+  handleToggleActionItem() {
+    // console.log('this.state.showActionItem: ', this.state.showActionItem)
+    this.setState({ showActionItem: !this.state.showActionItem })
   }
 
   render() {
@@ -37,11 +39,11 @@ class Room extends Component {
           <CategoryColumn category="happy" ideas={ this.state.ideas }/>
           <CategoryColumn category="sad" ideas={ this.state.ideas }/>
           <CategoryColumn category="confused" ideas={ this.state.ideas }/>
-          <CategoryColumn category="action-item" ideas={ this.state.ideas }/>
+          { this.state.showActionItem ? <CategoryColumn category="action-item" ideas={ this.state.ideas }/> : null }
         </div>
 
         <UserList users={ this.props.users } />
-        <IdeaSubmissionForm onIdeaSubmission={ this.handleIdeaSubmission } isActionItemsDisplayed={ this.state.showActionItems } toggleActionItems={ this.toggleActionItems }/>
+        <IdeaSubmissionForm onIdeaSubmission={ this.handleIdeaSubmission } onToggleActionItem={ this.handleToggleActionItem }/>
       </section>
     )
   }

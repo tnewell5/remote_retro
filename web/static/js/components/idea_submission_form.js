@@ -41,7 +41,6 @@ class IdeaSubmissionForm extends Component {
               <option value="happy">happy</option>
               <option value="sad">sad</option>
               <option value="confused">confused</option>
-              <option value="action-item">action-item</option>
             </select>
           </div>
           <div className="seven wide field">
@@ -61,7 +60,7 @@ class IdeaSubmissionForm extends Component {
           </div>
           <div className="three wide field">
             <div className="ui toggle checkbox">
-              <input type="checkbox" />
+              <input type="checkbox" onChange={ this.props.onToggleActionItem } />
               <label>Toggle Action Items</label>
             </div>
           </div>
