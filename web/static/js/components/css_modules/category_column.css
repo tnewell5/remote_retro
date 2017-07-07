@@ -11,3 +11,8 @@
   padding-left: 0;
   margin-top: 0;
 }
+
+section ul.list {
+  max-height: 40rem;
+  overflow-x: scroll;
+}
