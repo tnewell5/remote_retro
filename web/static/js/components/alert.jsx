@@ -10,6 +10,10 @@ Modal.defaultStyles.content.zIndex = 2
 Modal.defaultStyles.overlay.zIndex = 2
 
 export class Alert extends Component {
+  componentWillMount() {
+    Modal.setAppElement('body')
+  }
+
   render() {
     if (!this.props.config) return null
 

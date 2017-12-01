@@ -24,6 +24,10 @@ export class ShareRetroLinkModal extends Component {
     }
   }
 
+  componentWillMount() {
+    Modal.setAppElement('body')
+  }
+
   componentWillReceiveProps({ retroCreationTimestamp }) {
     if (timeElapsedLessThanFiveSec(retroCreationTimestamp)) {
       this.setState({ shouldOpen: true })

@@ -12,6 +12,10 @@ class StageProgressionButton extends Component {
     this.state = { modalOpen: false }
   }
 
+  componentWillMount() {
+    Modal.setAppElement('body')
+  }
+
   handleStageProgressionButtonClick() {
     const { config } = this.props
     const noConfirmationNecessary = !config.confirmationMessage
