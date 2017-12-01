@@ -4664,15 +4664,12 @@ rc@^1.1.6, rc@^1.1.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-css-transition-replace@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/react-css-transition-replace/-/react-css-transition-replace-3.0.2.tgz#8c2f8ea556c935f590ec285ed2d3ec247b19271e"
+react-css-transition-replace@^2.2.1:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/react-css-transition-replace/-/react-css-transition-replace-2.2.2.tgz#1b122e5d74148b3df5644a4c580798810e377003"
   dependencies:
-    chain-function "^1.0.0"
-    dom-helpers "^3.2.0"
     prop-types "^15.6.0"
     react-transition-group "^1.2.1"
-    warning "^3.0.0"
 
 react-deep-force-update@^2.1.1:
   version "2.1.1"
